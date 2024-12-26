@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation Examples</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .output {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
+        button {
+            margin: 5px 0;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>DOM Manipulation Examples</h1>
+    <p id="greeting">Hello, welcome to DOM manipulation!</p>
+    <input type="text" id="nameInput" placeholder="Enter your name">
+    <button id="changeTextButton">Change Greeting</button>
+    <button id="addParagraphButton">Add Paragraph</button>
+    <div class="output" id="output">
+        <h2>Output:</h2>
+    </div>
+
+    <script>
+        // Selecting elements
+        const greeting = document.getElementById("greeting");
+        const nameInput = document.getElementById("nameInput");
+        const changeTextButton = document.getElementById("changeTextButton");
+        const addParagraphButton = document.getElementById("addParagraphButton");
+        const outputDiv = document.getElementById("output");
+
+        // Changing text content
+        changeTextButton.addEventListener("click", () => {
+            const name = nameInput.value.trim();
+            if (name) {
+                greeting.textContent = `Hello, ${name}! Welcome to DOM manipulation.`;
+            } else {
+                greeting.textContent = "Hello! Please enter your name.";
+            }
+        });
+
+        // Adding new elements dynamically
+        addParagraphButton.addEventListener("click", () => {
+            const newParagraph = document.createElement("p");
+            newParagraph.textContent = "This is a dynamically added paragraph.";
+            newParagraph.style.color = "blue";
+            outputDiv.appendChild(newParagraph);
+        });
+
+        // Updating styles
+        greeting.addEventListener("mouseover", () => {
+            greeting.style.color = "green";
+        });
+
+        greeting.addEventListener("mouseout", () => {
+            greeting.style.color = "black";
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays in JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        .output {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
+        pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+    <h1>Arrays in JavaScript</h1>
+    <div id="output" class="output">
+        <h2>Output:</h2>
+        <pre></pre>
+    </div>
+
+    <script>
+        // Helper function to display output on the webpage
+        function appendOutput(text) {
+            document.querySelector("#output pre").textContent += text + "\n";
+        }
+
+        // Creating an array of favorite fruits
+        const fruits = ["Apple", "Banana", "Cherry", "Dates", "Elderberry"];
+        appendOutput("1. Array of Fruits:");
+        appendOutput(`Fruits Array: ${JSON.stringify(fruits)}`);
+
+        // Accessing elements in the array
+        appendOutput("\n2. Accessing Elements:");
+        appendOutput(`First fruit: ${fruits[0]}`); // Accessing the first element
+        appendOutput(`Third fruit: ${fruits[2]}`); // Accessing the third element
+        appendOutput(`Last fruit: ${fruits[fruits.length - 1]}`); // Accessing the last element dynamically
+
+        // Real-life example: Shopping cart
+        const shoppingCart = ["Milk", "Bread", "Eggs"];
+        appendOutput("\n3. Shopping Cart Example:");
+        appendOutput(`Initial Cart: ${JSON.stringify(shoppingCart)}`);
+
+        // Adding a new item to the cart
+        shoppingCart.push("Butter");
+        appendOutput(`After adding Butter: ${JSON.stringify(shoppingCart)}`);
+
+        // Removing the last item from the cart
+        const removedItem = shoppingCart.pop();
+        appendOutput(`After removing last item (${removedItem}): ${JSON.stringify(shoppingCart)}`);
+
+        // Accessing specific items in the shopping cart
+        appendOutput(`Second item in the cart: ${shoppingCart[1]}`);
+
+        // Using a loop to list all items
+        appendOutput("\n4. Items in Shopping Cart:");
+        shoppingCart.forEach((item, index) => {
+            appendOutput(`Item ${index + 1}: ${item}`);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Life Examples of Loops</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        .output {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
+        pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+    <h1>Real-Life Examples of JavaScript Loops</h1>
+    <div id="output" class="output">
+        <h2>Output:</h2>
+        <pre></pre>
+    </div>
+
+    <script>
+        // Helper function to display output on the webpage
+        function appendOutput(text) {
+            document.querySelector("#output pre").textContent += text + "\n";
+        }
+
+        // 1. For Loop Example: Delivering Packages
+        appendOutput("1. For Loop Example: Delivering Packages");
+        const packages = ["Package 1", "Package 2", "Package 3", "Package 4", "Package 5"];
+        for (let i = 0; i < packages.length; i++) {
+            appendOutput(`Delivering: ${packages[i]}`);
+        }
+
+        // 2. While Loop Example: Baking Cookies
+        appendOutput("\n2. While Loop Example: Baking Cookies");
+        let cookiesToBake = 5;
+        let cookiesBaked = 0;
+        while (cookiesBaked < cookiesToBake) {
+            cookiesBaked++;
+            appendOutput(`Baking cookie ${cookiesBaked}/${cookiesToBake}`);
+        }
+
+        // 3. Do-While Loop Example: ATM Withdrawal
+        appendOutput("\n3. Do-While Loop Example: ATM Withdrawal");
+        let balance = 1000; // Initial balance
+        let withdrawal = 200;
+        do {
+            balance -= withdrawal;
+            appendOutput(`Withdrawal of $${withdrawal} successful. Remaining balance: $${balance}`);
+        } while (balance >= withdrawal);
+
+        appendOutput("Insufficient balance for further withdrawals.");
+    </script>
+</body>
+</html>

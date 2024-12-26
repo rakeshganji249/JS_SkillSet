@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Methods in JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        .output {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
+        pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+    <h1>Array Methods in JavaScript</h1>
+    <div id="output" class="output">
+        <h2>Output:</h2>
+        <pre></pre>
+    </div>
+
+    <script>
+        // Helper function to display output on the webpage
+        function appendOutput(text) {
+            document.querySelector("#output pre").textContent += text + "\n";
+        }
+
+        // Initial array: To-Do List
+        const todoList = ["Buy groceries", "Clean the house", "Finish the report"];
+        appendOutput("1. Initial To-Do List:");
+        appendOutput(JSON.stringify(todoList));
+
+        // Adding items to the array using push()
+        todoList.push("Call the plumber", "Pay bills");
+        appendOutput("\n2. After Adding Items (push):");
+        appendOutput(JSON.stringify(todoList));
+
+        // Removing the last item using pop()
+        const lastItem = todoList.pop();
+        appendOutput("\n3. After Removing Last Item (pop):");
+        appendOutput(JSON.stringify(todoList));
+        appendOutput(`Removed Item: ${lastItem}`);
+
+        // Adding items to the beginning using unshift()
+        todoList.unshift("Walk the dog");
+        appendOutput("\n4. After Adding to the Beginning (unshift):");
+        appendOutput(JSON.stringify(todoList));
+
+        // Removing the first item using shift()
+        const firstItem = todoList.shift();
+        appendOutput("\n5. After Removing First Item (shift):");
+        appendOutput(JSON.stringify(todoList));
+        appendOutput(`Removed Item: ${firstItem}`);
+
+        // Sorting the array alphabetically using sort()
+        const sortedList = [...todoList].sort(); // Copy array before sorting
+        appendOutput("\n6. Sorted To-Do List (sort):");
+        appendOutput(JSON.stringify(sortedList));
+
+        // Reversing the array using reverse()
+        const reversedList = [...sortedList].reverse();
+        appendOutput("\n7. Reversed To-Do List (reverse):");
+        appendOutput(JSON.stringify(reversedList));
+
+        // Filtering items containing "Clean" using filter()
+        const filteredList = todoList.filter(item => item.includes("Clean"));
+        appendOutput("\n8. Filtered List (filter, contains 'Clean'):");
+        appendOutput(JSON.stringify(filteredList));
+
+        // Finding the first item containing "Buy" using find()
+        const foundItem = todoList.find(item => item.includes("Buy"));
+        appendOutput("\n9. First Item Found (find, contains 'Buy'):");
+        appendOutput(foundItem ? foundItem : "No match found");
+
+        // Checking if all items have more than 10 characters using every()
+        const allLongItems = todoList.every(item => item.length > 10);
+        appendOutput("\n10. All Items > 10 Characters? (every):");
+        appendOutput(allLongItems ? "Yes" : "No");
+
+        // Checking if at least one item contains "Call" using some()
+        const hasCall = todoList.some(item => item.includes("Call"));
+        appendOutput("\n11. Any Item Contains 'Call'? (some):");
+        appendOutput(hasCall ? "Yes" : "No");
+
+        // Mapping array to add " - DONE" to each item using map()
+        const updatedList = todoList.map(item => item + " - DONE");
+        appendOutput("\n12. Updated List (map, add ' - DONE'):");
+        appendOutput(JSON.stringify(updatedList));
+
+        // Reducing array to count total characters using reduce()
+        const totalCharacters = todoList.reduce((sum, item) => sum + item.length, 0);
+        appendOutput("\n13. Total Characters in To-Do List (reduce):");
+        appendOutput(totalCharacters.toString());
+    </script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Function Expressions and Arrow Functions</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                margin: 20px;
+            }
+            .output {
+                margin-top: 20px;
+                padding: 10px;
+                border: 1px solid #ccc;
+                background-color: #f9f9f9;
+            }
+            pre {
+                white-space: pre-wrap;
+                word-wrap: break-word;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Function Expressions and Arrow Functions</h1>
+        <div id="output" class="output">
+            <h2>Output:</h2>
+            <pre></pre>
+        </div>
+
+        <script>
+            // Helper function to display output on the webpage
+            function appendOutput(text) {
+                document.querySelector("#output pre").textContent += text + "\n";
+            }
+
+            // Function Expression Example: Calculate Discounted Price
+            const calculateDiscount = function(price, discountPercentage) {
+                const discount = (price * discountPercentage) / 100;
+                return price - discount;
+            };
+            appendOutput("1. Function Expression - Calculate Discounted Price:");
+            const price = 200;
+            const discountPercentage = 15;
+            const discountedPrice = calculateDiscount(price, discountPercentage);
+            appendOutput(`Original Price: $${price}`);
+            appendOutput(`Discount Percentage: ${discountPercentage}%`);
+            appendOutput(`Discounted Price: $${discountedPrice}`);
+
+            // Arrow Function Example: Convert Hours to Minutes
+            const hoursToMinutes = (hours) => {
+                return hours * 60;
+            };
+            appendOutput("\n2. Arrow Function - Convert Hours to Minutes:");
+            const hours = 5;
+            const minutes = hoursToMinutes(hours);
+            appendOutput(`${hours} hours is equal to ${minutes} minutes.`);
+
+            // Arrow Function Example: Check Eligibility for Loan
+            const checkLoanEligibility = (age, income) => {
+                return age >= 18 && income >= 3000 ? "Eligible for loan" : "Not eligible for loan";
+            };
+            appendOutput("\n3. Arrow Function - Check Eligibility for Loan:");
+            const age = 25;
+            const income = 3500;
+            appendOutput(`Age: ${age}`);
+            appendOutput(`Income: $${income}`);
+            appendOutput(checkLoanEligibility(age, income));
+
+            // Arrow Function Example: Calculate Circle Area
+            const calculateCircleArea = (radius) => Math.PI * radius * radius;
+            appendOutput("\n4. Arrow Function - Calculate Circle Area:");
+            const radius = 10;
+            const area = calculateCircleArea(radius).toFixed(2); // Rounded to 2 decimal places
+            appendOutput(`Radius: ${radius}`);
+            appendOutput(`Area: ${area} square units`);
+        </script>
+    </body>
+    </html>
+    

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access and Modify HTML Elements</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .highlight {
+            background-color: yellow;
+            font-weight: bold;
+        }
+        button {
+            margin: 10px 0;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="title">Access and Modify HTML Elements</h1>
+    <p id="description">This is a paragraph that can be modified using JavaScript.</p>
+    <input type="text" id="newText" placeholder="Enter new text">
+    <button id="changeTextButton">Change Text</button>
+    <button id="highlightButton">Highlight Paragraph</button>
+    <button id="resetButton">Reset</button>
+
+    <script>
+        // Accessing elements
+        const title = document.getElementById("title");
+        const description = document.getElementById("description");
+        const newTextInput = document.getElementById("newText");
+        const changeTextButton = document.getElementById("changeTextButton");
+        const highlightButton = document.getElementById("highlightButton");
+        const resetButton = document.getElementById("resetButton");
+
+        // Change the content of the paragraph
+        changeTextButton.addEventListener("click", () => {
+            const newText = newTextInput.value.trim();
+            if (newText) {
+                description.textContent = newText;
+            } else {
+                alert("Please enter some text!");
+            }
+        });
+
+        // Add a highlight effect to the paragraph
+        highlightButton.addEventListener("click", () => {
+            description.classList.add("highlight");
+        });
+
+        // Reset the paragraph to its original state
+        resetButton.addEventListener("click", () => {
+            description.textContent = "This is a paragraph that can be modified using JavaScript.";
+            description.classList.remove("highlight");
+            newTextInput.value = "";
+        });
+
+        // Modify the title on hover
+        title.addEventListener("mouseover", () => {
+            title.style.color = "blue";
+            title.style.textTransform = "uppercase";
+        });
+
+        title.addEventListener("mouseout", () => {
+            title.style.color = "black";
+            title.style.textTransform = "none";
+        });
+    </script>
+</body>
+</html>

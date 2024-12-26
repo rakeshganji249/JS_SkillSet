@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Manipulation in JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        .output {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
+        pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+    <h1>Object Creation and Manipulation</h1>
+    <div id="output" class="output">
+        <h2>Output:</h2>
+        <pre></pre>
+    </div>
+
+    <script>
+        // Helper function to display output on the webpage
+        function appendOutput(text) {
+            document.querySelector("#output pre").textContent += text + "\n";
+        }
+
+        // Creating an object (real-life example: A "Car")
+        const car = {
+            make: "Tesla",
+            model: "Model S",
+            year: 2022,
+            color: "Red",
+            mileage: 12000,
+            isElectric: true,
+            startEngine: function () {
+                return "Engine started.";
+            },
+            stopEngine: function () {
+                return "Engine stopped.";
+            }
+        };
+        appendOutput("1. Initial Car Object:");
+        appendOutput(JSON.stringify(car, null, 2));
+
+        // Accessing properties
+        appendOutput("\n2. Car Details:");
+        appendOutput(`Make: ${car.make}`);
+        appendOutput(`Model: ${car.model}`);
+        appendOutput(`Year: ${car.year}`);
+        appendOutput(`Color: ${car.color}`);
+
+        // Adding a new property
+        car.owner = "John Doe";
+        appendOutput("\n3. After Adding 'owner' Property:");
+        appendOutput(JSON.stringify(car, null, 2));
+
+        // Modifying a property
+        car.color = "Blue";
+        appendOutput("\n4. After Modifying 'color' Property:");
+        appendOutput(JSON.stringify(car, null, 2));
+
+        // Deleting a property
+        delete car.mileage;
+        appendOutput("\n5. After Deleting 'mileage' Property:");
+        appendOutput(JSON.stringify(car, null, 2));
+
+        // Calling a method
+        const startMessage = car.startEngine();
+        appendOutput("\n6. Calling startEngine Method:");
+        appendOutput(startMessage);
+
+        // Iterating over properties using for...in
+        appendOutput("\n7. Iterating Over Properties:");
+        for (let key in car) {
+            appendOutput(`${key}: ${car[key]}`);
+        }
+
+        // Using Object.keys()
+        const keys = Object.keys(car);
+        appendOutput("\n8. Using Object.keys():");
+        appendOutput(keys.join(", "));
+
+        // Using Object.values()
+        const values = Object.values(car);
+        appendOutput("\n9. Using Object.values():");
+        appendOutput(values.join(", "));
+
+        // Using Object.entries()
+        const entries = Object.entries(car);
+        appendOutput("\n10. Using Object.entries():");
+        entries.forEach(([key, value]) => {
+            appendOutput(`${key}: ${value}`);
+        });
+
+        // Checking if a property exists
+        const hasMileage = "mileage" in car;
+        appendOutput("\n11. Does 'mileage' Exist in Car?");
+        appendOutput(hasMileage ? "Yes" : "No");
+
+        // Creating a copy using Object.assign()
+        const carCopy = Object.assign({}, car);
+        appendOutput("\n12. Copy of Car Object Using Object.assign():");
+        appendOutput(JSON.stringify(carCopy, null, 2));
+
+        // Merging objects
+        const additionalFeatures = { autopilot: true, warranty: "5 years" };
+        const updatedCar = Object.assign({}, car, additionalFeatures);
+        appendOutput("\n13. Merging Objects with Additional Features:");
+        appendOutput(JSON.stringify(updatedCar, null, 2));
+    </script>
+</body>
+</html>

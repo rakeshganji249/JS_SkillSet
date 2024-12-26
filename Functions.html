@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Functions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        .output {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
+        pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+    <h1>JavaScript Functions: Real-Life Examples</h1>
+    <div id="output" class="output">
+        <h2>Output:</h2>
+        <pre></pre>
+    </div>
+
+    <script>
+        // Helper function to display output on the webpage
+        function appendOutput(text) {
+            document.querySelector("#output pre").textContent += text + "\n";
+        }
+
+        // Example 1: Calculate the total price of an order
+        function calculateTotalPrice(price, quantity) {
+            return price * quantity;
+        }
+        appendOutput("1. Total Price Calculation:");
+        const pricePerItem = 50;
+        const quantity = 4;
+        const totalPrice = calculateTotalPrice(pricePerItem, quantity);
+        appendOutput(`Price per item: $${pricePerItem}`);
+        appendOutput(`Quantity: ${quantity}`);
+        appendOutput(`Total Price: $${totalPrice}`);
+
+        // Example 2: Check if a number is even or odd
+        function isEven(number) {
+            return number % 2 === 0 ? "Even" : "Odd";
+        }
+        appendOutput("\n2. Check if a Number is Even or Odd:");
+        const number = 7;
+        appendOutput(`The number ${number} is ${isEven(number)}.`);
+
+        // Example 3: Greet a user by name
+        function greetUser(name) {
+            return `Hello, ${name}! Welcome to our website.`;
+        }
+        appendOutput("\n3. Greeting a User:");
+        const userName = "Rakesh";
+        appendOutput(greetUser(userName));
+
+        // Example 4: Find the maximum of two numbers
+        function findMax(a, b) {
+            return a > b ? a : b;
+        }
+        appendOutput("\n4. Finding the Maximum of Two Numbers:");
+        const num1 = 25, num2 = 42;
+        appendOutput(`Between ${num1} and ${num2}, the maximum is ${findMax(num1, num2)}.`);
+
+        // Example 5: Convert Celsius to Fahrenheit
+        function celsiusToFahrenheit(celsius) {
+            return (celsius * 9/5) + 32;
+        }
+        appendOutput("\n5. Convert Celsius to Fahrenheit:");
+        const celsius = 30;
+        const fahrenheit = celsiusToFahrenheit(celsius);
+        appendOutput(`${celsius}°C is equal to ${fahrenheit}°F.`);
+    </script>
+</body>
+</html>

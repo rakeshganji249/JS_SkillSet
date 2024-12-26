@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conditional Statements in JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        .output {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
+        pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+    <h1>JavaScript Conditional Statements</h1>
+    <div id="output" class="output">
+        <h2>Output:</h2>
+        <pre></pre>
+    </div>
+
+    <script>
+        // Helper function to display output on the webpage
+        function appendOutput(text) {
+            document.querySelector("#output pre").textContent += text + "\n";
+        }
+
+        // Example: Conditional Statements
+        appendOutput("Conditional Statements Examples:");
+
+        // 1. If Statement
+        let number = 10;
+        appendOutput("\n1. If Statement:");
+        if (number > 5) {
+            appendOutput(`The number (${number}) is greater than 5.`);
+        }
+
+        // 2. If-Else Statement
+        let age = 16;
+        appendOutput("\n2. If-Else Statement:");
+        if (age >= 18) {
+            appendOutput(`Age (${age}) is eligible for voting.`);
+        } else {
+            appendOutput(`Age (${age}) is NOT eligible for voting.`);
+        }
+
+        // 3. Else If Statement
+        let score = 75;
+        appendOutput("\n3. Else If Statement:");
+        if (score >= 90) {
+            appendOutput(`Score (${score}): Grade A`);
+        } else if (score >= 80) {
+            appendOutput(`Score (${score}): Grade B`);
+        } else if (score >= 70) {
+            appendOutput(`Score (${score}): Grade C`);
+        } else {
+            appendOutput(`Score (${score}): Grade F`);
+        }
+
+        // 4. Nested If Statement
+        let temperature = 30;
+        appendOutput("\n4. Nested If Statement:");
+        if (temperature > 20) {
+            if (temperature > 25) {
+                appendOutput(`Temperature (${temperature}°C) is warm.`);
+            } else {
+                appendOutput(`Temperature (${temperature}°C) is moderate.`);
+            }
+        } else {
+            appendOutput(`Temperature (${temperature}°C) is cold.`);
+        }
+    </script>
+</body>
+</html>

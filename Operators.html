@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Operators and Expressions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        .output {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
+        pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+    <h1>JavaScript Operators and Expressions</h1>
+    <div id="output" class="output">
+        <h2>Output:</h2>
+        <pre></pre>
+    </div>
+
+    <script>
+        // Helper function to append text to the output div
+        function appendOutput(text) {
+            document.querySelector("#output pre").textContent += text + "\n";
+        }
+
+        // 1. Arithmetic Operators
+        let a = 10;
+        let b = 5;
+        appendOutput("Arithmetic Operators:");
+        appendOutput(`a + b = ${a + b}`); // Addition
+        appendOutput(`a - b = ${a - b}`); // Subtraction
+        appendOutput(`a * b = ${a * b}`); // Multiplication
+        appendOutput(`a / b = ${a / b}`); // Division
+        appendOutput(`a % b = ${a % b}`); // Modulus
+
+        // 2. Assignment Operators
+        appendOutput("\nAssignment Operators:");
+        let c = 10;
+        appendOutput(`c = ${c}`);
+        c += 5; // Equivalent to c = c + 5
+        appendOutput(`c += 5 -> c = ${c}`);
+        c -= 2; // Equivalent to c = c - 2
+        appendOutput(`c -= 2 -> c = ${c}`);
+        c *= 3; // Equivalent to c = c * 3
+        appendOutput(`c *= 3 -> c = ${c}`);
+        c /= 3; // Equivalent to c = c / 3
+        appendOutput(`c /= 3 -> c = ${c}`);
+        c %= 3; // Equivalent to c = c % 3
+        appendOutput(`c %= 3 -> c = ${c}`);
+
+        // 3. Comparison Operators
+        appendOutput("\nComparison Operators:");
+        appendOutput(`a == b: ${a == b}`); // Equal to
+        appendOutput(`a != b: ${a != b}`); // Not equal to
+        appendOutput(`a > b: ${a > b}`);   // Greater than
+        appendOutput(`a < b: ${a < b}`);   // Less than
+        appendOutput(`a >= b: ${a >= b}`); // Greater than or equal to
+        appendOutput(`a <= b: ${a <= b}`); // Less than or equal to
+
+        // 4. Logical Operators
+        appendOutput("\nLogical Operators:");
+        let x = true, y = false;
+        appendOutput(`x && y: ${x && y}`); // AND
+        appendOutput(`x || y: ${x || y}`); // OR
+        appendOutput(`!x: ${!x}`);         // NOT
+
+        // 5. Bitwise Operators
+        appendOutput("\nBitwise Operators:");
+        let m = 5, n = 3;
+        appendOutput(`m & n: ${m & n}`); // AND
+        appendOutput(`m | n: ${m | n}`); // OR
+        appendOutput(`m ^ n: ${m ^ n}`); // XOR
+        appendOutput(`~m: ${~m}`);       // NOT
+        appendOutput(`m << 1: ${m << 1}`); // Left shift
+        appendOutput(`m >> 1: ${m >> 1}`); // Right shift
+
+        // 6. Conditional (Ternary) Operator
+        appendOutput("\nConditional (Ternary) Operator:");
+        let result = (a > b) ? "a is greater than b" : "a is not greater than b";
+        appendOutput(`(a > b) ? "a is greater than b" : "a is not greater than b" -> ${result}`);
+
+        // 7. Type Operators
+        appendOutput("\nType Operators:");
+        let str = "Hello";
+        appendOutput(`typeof str: ${typeof str}`); // Type of
+        appendOutput(`typeof a: ${typeof a}`);
+        appendOutput(`a instanceof Number: ${a instanceof Number}`); // instanceof
+
+        // 8. String Operators
+        appendOutput("\nString Operators:");
+        let str1 = "Hello, ";
+        let str2 = "World!";
+        appendOutput(`str1 + str2: ${str1 + str2}`); // Concatenation
+
+        // 9. Increment and Decrement Operators
+        appendOutput("\nIncrement and Decrement Operators:");
+        let count = 5;
+        appendOutput(`count: ${count}`);
+        appendOutput(`++count: ${++count}`); // Pre-increment
+        appendOutput(`count++: ${count++}`); // Post-increment
+        appendOutput(`count after count++: ${count}`);
+        appendOutput(`--count: ${--count}`); // Pre-decrement
+        appendOutput(`count--: ${count--}`); // Post-decrement
+        appendOutput(`count after count--: ${count}`);
+    </script>
+</body>
+</html>

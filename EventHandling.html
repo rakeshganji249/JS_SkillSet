@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Handling Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .hover-box {
+            width: 200px;
+            height: 100px;
+            background-color: lightblue;
+            text-align: center;
+            line-height: 100px;
+            margin-bottom: 20px;
+        }
+        .log {
+            border: 1px solid #ccc;
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Event Handling </h1>
+
+    <h2>Click Event</h2>
+    <button id="clickButton">Click Me</button>
+    <p id="clickMessage">No clicks yet.</p>
+
+    <h2>Input Event</h2>
+    <input type="text" id="textInput" placeholder="Type something">
+    <p id="inputMessage">You haven't typed anything yet.</p>
+
+    <h2>Mouse Events</h2>
+    <div class="hover-box" id="hoverBox">Hover Over Me</div>
+    <p id="hoverMessage">Hover status will be displayed here.</p>
+
+    <h2>Keyboard Event</h2>
+    <input type="text" id="keyInput" placeholder="Press any key">
+    <div class="log" id="keyLog">Key logs will appear here.</div>
+
+    <script>
+        // Click Event
+        const clickButton = document.getElementById("clickButton");
+        const clickMessage = document.getElementById("clickMessage");
+
+        clickButton.addEventListener("click", () => {
+            clickMessage.textContent = "Button clicked!";
+        });
+
+        // Input Event
+        const textInput = document.getElementById("textInput");
+        const inputMessage = document.getElementById("inputMessage");
+
+        textInput.addEventListener("input", () => {
+            const value = textInput.value.trim();
+            if (value) {
+                inputMessage.textContent = `You typed: "${value}"`;
+            } else {
+                inputMessage.textContent = "You haven't typed anything yet.";
+            }
+        });
+
+        // Mouse Events
+        const hoverBox = document.getElementById("hoverBox");
+        const hoverMessage = document.getElementById("hoverMessage");
+
+        hoverBox.addEventListener("mouseover", () => {
+            hoverBox.style.backgroundColor = "lightgreen";
+            hoverMessage.textContent = "Mouse is over the box!";
+        });
+
+        hoverBox.addEventListener("mouseout", () => {
+            hoverBox.style.backgroundColor = "lightblue";
+            hoverMessage.textContent = "Mouse left the box.";
+        });
+
+        // Keyboard Event
+        const keyInput = document.getElementById("keyInput");
+        const keyLog = document.getElementById("keyLog");
+
+        keyInput.addEventListener("keypress", (event) => {
+            const key = event.key;
+            keyLog.textContent += `Key "${key}" pressed.\n`;
+        });
+    </script>
+</body>
+</html>
